@@ -31,26 +31,42 @@
 
     var wins = 0;
     var losses = 0;
-    var guesscounter = 0;
+    var guesses = 9;
+    var guess
+
+    var computerChoice = letters[Math.floor(Math.random() * letters.length)];
+        console.log(computerChoice);
 
     var headerText = document.getElementById("header-text");
     var directionsText = document.getElementById("directions-text");
-    var winsText = document.getElementyById("wins-text");
+    var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
-    var guessLeftText = document.getElemenetById("guessleft-text");
+    var guessLeftText = document.getElementById("guessleft-text");
     var letterLeftText = document.getElementById("letterssofar-text");
 
 
-    document.onkeyup = function(event) {
+
+    document.onkeypress = function(event) {
 
         var userGuess = event.key;
 
-        
+        if (userGuess === computerChoice) {
+            wins++;
+        }
+        else {
+            guessCounter--;
+        }
+
+        if (guessCounter = 0) {
+            losses++;
+        }
 
 
-    }
+    };
 
-
+    winsText.textContent = "Wins: " + wins;
+    lossesText.textContent = "Losses: " + losses;
+    guessLeftText.textContent = "Guesses Left: " + guesses;
    
    
    
