@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Psychic Game</title>
+
+
+</head>
+
+
+
+<body>
+
+    <div>
+        <p id="header-text"> <h1>The Psychic Game</h1></p> 
+        <p id="directions-text"> Guess what letter I am thinking of</p>
+        <p id="wins-text"></p>
+        <p id="losses-text"></p>
+        <p id="guessleft-text"></p>
+        <p id="letterssofar-text"></p>
+
+
+    </div>
+
+   <script type="text/javascript">
+
+    var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+
+    var wins = 0;
+    var losses = 0;
+    var guesscounter = 0;
+
+    var headerText = document.getElementById("header-text");
+    var directionsText = document.getElementById("directions-text");
+    var winsText = document.getElementyById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var guessLeftText = document.getElemenetById("guessleft-text");
+    var letterLeftText = document.getElementById("letterssofar-text");
+
+
+    document.onkeyup = function(event) {
+
+        var userGuess = event.key;
+
+        
+
+
+    }
+
+
+   
+   
+   
+
+
+
+   </script> 
+
+
+
+
+    
+</body>
+</html>
