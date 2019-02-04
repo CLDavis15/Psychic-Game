@@ -32,7 +32,8 @@
     var wins = 0;
     var losses = 0;
     var guesses = 9;
-    var guess
+    var guessesLeft = [];
+    
 
     var computerChoice = letters[Math.floor(Math.random() * letters.length)];
         console.log(computerChoice);
@@ -42,7 +43,7 @@
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
     var guessLeftText = document.getElementById("guessleft-text");
-    var letterLeftText = document.getElementById("letterssofar-text");
+    var lettersGuessedText = document.getElementById("letterssofar-text");
 
 
 
@@ -50,24 +51,34 @@
 
         var userGuess = event.key;
 
-        if (userGuess === computerChoice) {
-            wins++;
-        }
-        else {
-            guessCounter--;
-        }
+        var alphabetOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-        if (guessCounter = 0) {
-            losses++;
-        }
+        if (alphabetOptions.indexOf(userGuess) > -1) {
 
+            if (userGuess === computerChoice) {
+                wins++;
+                guesses = 9;
+                guessesLeft = [];
+
+            }
+            if (userGuess != computerChoice)
+                guesses--; 
+            }
+
+            if (guesses = 0) {
+                losses++;
+            }
+
+        };
+        
 
     };
 
     winsText.textContent = "Wins: " + wins;
     lossesText.textContent = "Losses: " + losses;
     guessLeftText.textContent = "Guesses Left: " + guesses;
-   
+    lettersGuessedText.textContent = "Your guesses so far:";
+
    
    
 
