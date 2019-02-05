@@ -14,70 +14,67 @@
 <body>
 
     <div>
-        <p id="header-text"> <h1>The Psychic Game</h1></p> 
-        <p id="directions-text"> Guess what letter I am thinking of</p>
-        <p id="wins-text"></p>
-        <p id="losses-text"></p>
-        <p id="guessleft-text"></p>
-        <p id="letterssofar-text"></p>
+        <h1>The Psychic Game</h1>
+        <p>Guess what letter I am thinking of!</p>
+        <p id="wins"></p>
+        <p id="losses"></p>
+        <p id="guesses"></p>
+        <p>Your guesses so far:</p>
 
 
     </div>
 
    <script type="text/javascript">
 
+
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
+    
+    
     var wins = 0;
     var losses = 0;
     var guesses = 9;
     var guessesLeft = [];
-    
-
-    var computerChoice = letters[Math.floor(Math.random() * letters.length)];
-        console.log(computerChoice);
-
-    var headerText = document.getElementById("header-text");
-    var directionsText = document.getElementById("directions-text");
-    var winsText = document.getElementById("wins-text");
-    var lossesText = document.getElementById("losses-text");
-    var guessLeftText = document.getElementById("guessleft-text");
-    var lettersGuessedText = document.getElementById("letterssofar-text");
-
 
 
     document.onkeypress = function(event) {
 
         var userGuess = event.key;
 
+        var computerChoice = letters[Math.floor(Math.random() * letters.length)];
+
         var alphabetOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-        if (alphabetOptions.indexOf(userGuess) > -1) {
+            if (alphabetOptions.indexOf(userGuess) > -1) {
 
-            if (userGuess === computerChoice) {
-                wins++;
-                guesses = 9;
-                guessesLeft = [];
+                if (userGuess === computerChoice) {
+                    wins++;
+                    guesses = 9;
+                    guessesLeft = [];
+                }
 
-            }
-            if (userGuess != computerChoice)
-                guesses--; 
-            }
+                if (userGuess != computerChoice){
 
-            if (guesses = 0) {
-                losses++;
-            }
+                    guesses --; 
+                    guessesLeft.push(userGuess);
 
-        };
+                };
+
+                if (guesses === 0) {
+                    losses ++;
+                    guessesLeft = [];
+                };
+
+            };
         
 
     };
 
-    winsText.textContent = "Wins: " + wins;
-    lossesText.textContent = "Losses: " + losses;
-    guessLeftText.textContent = "Guesses Left: " + guesses;
-    lettersGuessedText.textContent = "Your guesses so far:";
+
+
+    document.getElementById("wins").innerHTML = "Wins: " + wins;
+    document.getElementById("losses").innerHTML = "Losses: " + losses;
+    document.getElementById("guesses").innerHTML = "Guesses Left: " + guesses;
+    
 
    
    
