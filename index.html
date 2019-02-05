@@ -13,12 +13,12 @@
 
 <body>
 
-    <div>
+    <div id="game">
         <h1>The Psychic Game</h1>
         <p>Guess what letter I am thinking of!</p>
-        <p id="wins"></p>
-        <p id="losses"></p>
-        <p id="guesses"></p>
+        <p> Wins:</p>
+        <p> Losses:</p>
+        <p> Guesses:</p>
         <p>Your guesses so far:</p>
 
 
@@ -50,7 +50,7 @@
                     wins++;
                     guesses = 9;
                     guessesLeft = [];
-                }
+                };
 
                 if (userGuess != computerChoice){
 
@@ -66,14 +66,21 @@
 
             };
         
+    var html = 
+    "<h1>The Psychic Game</h1>" +
+    "<p>Guess what letter I am thinking of!</p>" + 
+    "<p> Wins:" + wins + "</p>" +
+    "<p> Losses:" + losses + "</p>" +
+    "<p> Guesses Left:" +  guesses+ "</p>" +
+    "<p>Your guesses so far:" + guessesLeft.join(" , ") + "</p>"
 
+    document.querySelector("#game").innerHTML = html;
     };
 
 
 
-    document.getElementById("wins").innerHTML = "Wins: " + wins;
-    document.getElementById("losses").innerHTML = "Losses: " + losses;
-    document.getElementById("guesses").innerHTML = "Guesses Left: " + guesses;
+
+ 
     
 
    
